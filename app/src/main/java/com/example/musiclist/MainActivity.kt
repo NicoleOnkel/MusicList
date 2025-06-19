@@ -7,10 +7,13 @@ import android.text.Layout
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import org.w3c.dom.Text
 import kotlin.text.clear
 import kotlin.toString
 
@@ -39,6 +42,8 @@ class MainActivity : AppCompatActivity() {
         val addonlist = findViewById<Button>(R.id.addtolist)
         val textbox = findViewById<EditText>(R.id.inputbox)
         val ViewScreen = findViewById<Button>(R.id.nxtScreen)
+        val exit = findViewById<Button>(R.id.exit)
+
 
 
 
@@ -46,8 +51,10 @@ class MainActivity : AppCompatActivity() {
         //Arrays
         val TheSongTitle = mutableListOf<String>()
         val TheArtistName = mutableListOf<String>()
-        val TheRating = mutableListOf<Int>()
+        val TheRating = mutableListOf<String>()
         val UserComments = mutableListOf<String>()
+
+
 
 
 
@@ -58,9 +65,17 @@ class MainActivity : AppCompatActivity() {
 
 
         fun AddDetails(){
-            if (addonlist.isEnabled == true)
-                        textbox.visibility = View.VISIBLE
-                    Songtitle.visibility = View.VISIBLE
+
+
+            textbox.visibility = View.VISIBLE
+            Songtitle.visibility = View.VISIBLE
+            ArtistName.visibility = View.VISIBLE
+            Rating.visibility = View.VISIBLE
+            Comments.visibility = View.VISIBLE
+
+
+
+
 
             Songtitle.setOnClickListener {
 
@@ -69,7 +84,8 @@ class MainActivity : AppCompatActivity() {
                     TheSongTitle.add(frominputbox)
                 textbox.text.clear()//clear text
 
-
+                if (frominputbox.isEmpty())
+                    Toast.makeText(this@MainActivity, "The titles is empty.Try again.",Toast.LENGTH_SHORT).show()
 
 
                 }
@@ -89,7 +105,7 @@ class MainActivity : AppCompatActivity() {
             Rating.setOnClickListener {
                 var frominputbox =textbox.text.toString()
                 if(frominputbox.isNotEmpty())
-                    TheRating+
+                    TheRating.add(frominputbox)
                 textbox.text.clear()//clear text
 
             }
@@ -107,10 +123,11 @@ class MainActivity : AppCompatActivity() {
 
         }
 
-        AddDetails()
+
+        ///Once button is clicked, user will enter details
 
 
-
+        addonlist.setOnClickListener { AddDetails() }
 
 
 
@@ -119,12 +136,18 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, Details::class.java)
             intent.putStringArrayListExtra("SongTitle", ArrayList(TheSongTitle))
             intent.putStringArrayListExtra("ArtistName", ArrayList(TheArtistName))
-            intent.putIntegerArrayListExtra("Rating", ArrayList(TheRating))
+            intent.putStringArrayListExtra("Rating", ArrayList(TheRating))
             intent.putStringArrayListExtra("Comments", ArrayList(UserComments))
             startActivity(intent)
         }
 
 
+
+
+        //Exit button
+        exit.setOnClickListener {
+            finishAffinity()
+        }
 
 
 

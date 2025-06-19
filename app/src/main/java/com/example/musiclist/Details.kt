@@ -23,7 +23,7 @@ class Details : AppCompatActivity() {
         }
         val songs = intent.getStringArrayListExtra("SongTitle")
         val artists = intent.getStringArrayListExtra("ArtistName")
-        val rating = intent.getIntExtra("Rating", 0)
+        val rating = intent.getStringArrayListExtra("Rating")
         val comments = intent.getStringArrayListExtra("Comments")
 
         val allsongs = findViewById<TextView>(R.id.Songlist)
@@ -40,24 +40,19 @@ class Details : AppCompatActivity() {
 
             allsongs.text = "Click View Button to see playlist"
 
-            if (viewbutton.isEnabled){
+            val listofdetails = 0
+
+            if (listofdetails < 4){
+                if (viewbutton.isEnabled== true){
                 allsongs.text = "Song Title: $songs".toString()
                 allartists.text = "The Artist: $artists".toString()
                 allratings.text = "The Rating: $rating".toString()
-                allComments.text = "The Comment: $comments".toString()
+                allComments.text = "The Comment: $comments".toString()}
 
             }
         }
 
         displayScreen()
-
-
-
-
-
-
-
-
 
 
 
