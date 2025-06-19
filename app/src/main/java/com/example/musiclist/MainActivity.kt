@@ -96,6 +96,8 @@ class MainActivity : AppCompatActivity() {
                 if(frominputbox.isNotEmpty())
                     TheArtistName.add(frominputbox)
                 textbox.text.clear()//clear text
+                if (frominputbox.isEmpty())
+                    Toast.makeText(this@MainActivity, "The titles is empty.Try again.",Toast.LENGTH_SHORT).show()
 
 
 
@@ -107,6 +109,8 @@ class MainActivity : AppCompatActivity() {
                 if(frominputbox.isNotEmpty())
                     TheRating.add(frominputbox)
                 textbox.text.clear()//clear text
+                if (frominputbox.isEmpty())
+                    Toast.makeText(this@MainActivity, "The titles is empty.Try again.",Toast.LENGTH_SHORT).show()
 
             }
 
@@ -116,6 +120,8 @@ class MainActivity : AppCompatActivity() {
                 if(frominputbox.isNotEmpty())
                     UserComments.add(frominputbox)
                 textbox.text.clear()//clear text
+                if (frominputbox.isEmpty())
+                    Toast.makeText(this@MainActivity, "The titles is empty.Try again.",Toast.LENGTH_SHORT).show()
 
 
             }
