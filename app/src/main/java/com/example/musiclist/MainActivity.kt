@@ -1,6 +1,7 @@
 package com.example.musiclist
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.text.Layout
 import android.view.View
@@ -24,7 +25,8 @@ class MainActivity : AppCompatActivity() {
         }
         val addonlist = findViewById<Button>(R.id.addtolist)
         val textbox = findViewById<EditText>(R.id.inputbox)
-        val saveItems = findViewById<Button>(R.id.saveitem)
+        val Songtitle = findViewById<Button>(R.id.Songtitle)
+        val ViewScreen = findViewById<Button>(R.id.nxtScreen)
 
 
 
@@ -37,14 +39,14 @@ class MainActivity : AppCompatActivity() {
         addonlist.setOnClickListener {
             if (addonlist.isEnabled == true)
                 textbox.visibility = View.VISIBLE
-            saveItems.visibility = View.VISIBLE
+            Songtitle.visibility = View.VISIBLE
 
 
 
 
         }
 
-        saveItems.setOnClickListener {
+        Songtitle.setOnClickListener {
 
             var frominputbox =textbox.text.toString()
             if(frominputbox.isNotEmpty())
@@ -53,6 +55,15 @@ class MainActivity : AppCompatActivity() {
 
 
         }
+
+
+        //Next Screen
+        ViewScreen.setOnClickListener {
+            val intent = Intent(this, Details::class.java)
+            intent.putStringArrayListExtra("SongTitle", ArrayList(TheSongTitle))
+            startActivity(intent)
+        }
+
 
 
 
