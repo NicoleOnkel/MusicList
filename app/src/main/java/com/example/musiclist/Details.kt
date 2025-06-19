@@ -24,10 +24,12 @@ class Details : AppCompatActivity() {
         val songs = intent.getStringArrayListExtra("SongTitle")
         val artists = intent.getStringArrayListExtra("ArtistName")
         val rating = intent.getIntExtra("Rating", 0)
-        val commments = intent.getStringArrayListExtra("Comments")
+        val comments = intent.getStringArrayListExtra("Comments")
 
         val allsongs = findViewById<TextView>(R.id.Songlist)
         val allartists = findViewById<TextView>(R.id.Artistlist)
+        val allratings = findViewById<TextView>(R.id.Ratinglist)
+        val allComments = findViewById<TextView>(R.id.Commentslist)
 
         //displaying Details on Screen
 
@@ -41,6 +43,9 @@ class Details : AppCompatActivity() {
             if (viewbutton.isEnabled){
                 allsongs.text = "Song Title: $songs".toString()
                 allartists.text = "The Artist: $artists".toString()
+                allratings.text = "The Rating: $rating".toString()
+                allComments.text = "The Comment: $comments".toString()
+
             }
         }
 
