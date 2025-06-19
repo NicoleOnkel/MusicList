@@ -13,7 +13,29 @@
         android:id="@+id/Songlist"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hi">
+        android:text="">
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/Artistlist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="">
+
+    </TextView>
+    <TextView
+        android:id="@+id/Ratinglist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="">
+
+    </TextView>
+    <TextView
+        android:id="@+id/Commentslist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="">
 
     </TextView>
 

@@ -27,6 +27,7 @@ class Details : AppCompatActivity() {
         val commments = intent.getStringArrayListExtra("Comments")
 
         val allsongs = findViewById<TextView>(R.id.Songlist)
+        val allartists = findViewById<TextView>(R.id.Artistlist)
 
         //displaying Details on Screen
 
@@ -38,7 +39,8 @@ class Details : AppCompatActivity() {
             allsongs.text = "Click View Button to see playlist"
 
             if (viewbutton.isEnabled){
-                allsongs.text = songs?.joinToString()
+                allsongs.text = "Song Title: $songs".toString()
+                allartists.text = "The Artist: $artists".toString()
             }
         }
 
