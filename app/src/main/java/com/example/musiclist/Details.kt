@@ -22,11 +22,29 @@ class Details : AppCompatActivity() {
             insets
         }
         val songs = intent.getStringArrayListExtra("SongTitle")
+        val artists = intent.getStringArrayListExtra("ArtistName")
+        val rating = intent.getIntExtra("Rating", 0)
+        val commments = intent.getStringArrayListExtra("Comments")
 
         val allsongs = findViewById<TextView>(R.id.Songlist)
 
-        //displaying songs on screen
-        allsongs.text = songs?.joinToString()
+        //displaying Details on Screen
+
+        val viewbutton = findViewById<Button>(R.id.ViewSongdetails)
+
+
+        fun displayScreen(){
+
+            allsongs.text = "Click View Button to see playlist"
+
+            if (viewbutton.isEnabled){
+                allsongs.text = songs?.joinToString()
+            }
+        }
+
+        displayScreen()
+
+
 
 
 

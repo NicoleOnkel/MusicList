@@ -11,6 +11,8 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import kotlin.text.clear
+import kotlin.toString
 
 class MainActivity : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
@@ -23,10 +25,21 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+
+        //buttons for adding
+        val Songtitle = findViewById<Button>(R.id.Songtitle)
+        val ArtistName = findViewById<Button>(R.id.artistNme)
+        val Rating = findViewById<Button>(R.id.Rating)
+        val Comments = findViewById<Button>(R.id.Comments)
+
+
+
+
         val addonlist = findViewById<Button>(R.id.addtolist)
         val textbox = findViewById<EditText>(R.id.inputbox)
-        val Songtitle = findViewById<Button>(R.id.Songtitle)
         val ViewScreen = findViewById<Button>(R.id.nxtScreen)
+
 
 
 
@@ -36,31 +49,78 @@ class MainActivity : AppCompatActivity() {
         val TheRating = mutableListOf<Int>()
         val UserComments = mutableListOf<String>()
 
-        addonlist.setOnClickListener {
+
+
+
+
+        //Buttons for adding titels, artist, rating, comments
+
+
+
+        fun AddDetails(){
             if (addonlist.isEnabled == true)
-                textbox.visibility = View.VISIBLE
-            Songtitle.visibility = View.VISIBLE
+                        textbox.visibility = View.VISIBLE
+                    Songtitle.visibility = View.VISIBLE
+
+            Songtitle.setOnClickListener {
+
+                var frominputbox =textbox.text.toString()
+                if(frominputbox.isNotEmpty())
+                    TheSongTitle.add(frominputbox)
+                textbox.text.clear()//clear text
 
 
+
+
+                }
+
+            ArtistName.setOnClickListener {
+
+                var frominputbox =textbox.text.toString()
+                if(frominputbox.isNotEmpty())
+                    TheArtistName.add(frominputbox)
+                textbox.text.clear()//clear text
+
+
+
+
+            }
+
+            Rating.setOnClickListener {
+                var frominputbox =textbox.text.toString()
+                if(frominputbox.isNotEmpty())
+                    TheRating+
+                textbox.text.clear()//clear text
+
+            }
+
+
+            Comments.setOnClickListener {
+                var frominputbox =textbox.text.toString()
+                if(frominputbox.isNotEmpty())
+                    UserComments.add(frominputbox)
+                textbox.text.clear()//clear text
+
+
+            }
 
 
         }
 
-        Songtitle.setOnClickListener {
-
-            var frominputbox =textbox.text.toString()
-            if(frominputbox.isNotEmpty())
-                TheSongTitle.add(frominputbox)
-                    textbox.text.clear()//clear text
+        AddDetails()
 
 
-        }
+
+
 
 
         //Next Screen
         ViewScreen.setOnClickListener {
             val intent = Intent(this, Details::class.java)
             intent.putStringArrayListExtra("SongTitle", ArrayList(TheSongTitle))
+            intent.putStringArrayListExtra("ArtistName", ArrayList(TheArtistName))
+            intent.putIntegerArrayListExtra("Rating", ArrayList(TheRating))
+            intent.putStringArrayListExtra("Comments", ArrayList(UserComments))
             startActivity(intent)
         }
 

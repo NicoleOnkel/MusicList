@@ -28,27 +28,30 @@
 
     </Button>
 
+    <EditText
+        android:id="@+id/inputbox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:visibility="gone"
+        android:padding="20dp">
+
+    </EditText>
+
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_gravity="center">
-
-        <EditText
-            android:id="@+id/inputbox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            android:padding="20dp">
-
-        </EditText>
+        android:layout_gravity="center"
+        >
 
         <Button
             android:id="@+id/Songtitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Song Title"
-            android:visibility="gone"
+
             android:padding="20dp">
 
         </Button>
@@ -56,8 +59,8 @@
             android:id="@+id/artistNme"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Song Title"
-            android:visibility="gone"
+            android:text="Artist Name"
+
             android:padding="20dp">
 
         </Button>
@@ -65,8 +68,8 @@
             android:id="@+id/Rating"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Song Title"
-            android:visibility="gone"
+            android:text="Rating"
+
             android:padding="20dp">
 
         </Button>
@@ -74,8 +77,7 @@
             android:id="@+id/Comments"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Song Title"
-            android:visibility="gone"
+            android:text="Comments"
             android:padding="20dp">
 
         </Button>
